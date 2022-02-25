@@ -1,77 +1,76 @@
-import React , {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 export default function Navbar(props) {
   const [text, setText] = useState("");
-// Value getting function
+  // Value getting function
   const Edittext = (event) => {
     console.log(event.target.value);
     setText(event.target.value);
-    
-    
+
+
     // props.showalert(`Sucessfully ${event.target.value} mode active`,'')
-    props.showalert("mode active",`${event.target.value}`)
+    props.showalert("mode active", `${event.target.value}`)
   };
-  
+
 
   return <div>
-       <nav className={`navbar navbar-expand-lg navbar-${text} bg-${text} text-${text== "" ||text=="primary" || text == "light" ? "black" : "white"} `}>
-  <div className="container-fluid">
-    <a className={`navbar-brand text-${text== "" || text=="primary" || text == "light" ? "black" : "white"} `} href="/" >{props.title} </a>
-    {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="/navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button> */}
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-          <a className={`nav-link active text-${ text== "" || text=="primary" || text == "light" ? "black" : "white" }`} aria-current="page" href="/">Home</a>
-        </li>
-        <li className="nav-item">
-          <a className={`nav-link active text-${text== "" || text=="primary" || text == "light" ? "black" : "white"}`} href="/">{props.about}</a>
-        </li>
+    <nav className={`navbar navbar-expand-lg navbar-${text} bg-${text} text-${text == "" || text == "primary" || text == "light" ? "black" : "white"} `}>
+      <div className="container-fluid">
+        <a className={`navbar-brand text-${text == "" || text == "primary" || text == "light" ? "black" : "white"} `} href="/" >{props.title} </a>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="/navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className={`nav-link active text-${text == "" || text == "primary" || text == "light" ? "black" : "white"}`} aria-current="page" href="/">Home</a>
+            </li>
+            <li className="nav-item">
+              <a className={`nav-link active text-${text == "" || text == "primary" || text == "light" ? "black" : "white"}`} href="/">{props.about}</a>
+            </li>
 
-      </ul>
-    {/* Use for two button */}
-      {/* <div className={`form-check form-switch text-${props.mode === "light" ? "dark" : "light"}`}>
+          </ul>
+          {/* Use for two button */}
+          {/* <div className={`form-check form-switch text-${props.mode === "light" ? "dark" : "light"}`}>
   <input className="form-check-input" type="checkbox" onClick={props.darkswitchbtn}  role="switch" id="flexSwitchCheckDefault"/>
   <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
     Enable Dark Mode
   </label>
 </div> */}
 
-<div className="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" onChange={Edittext} value={props.mode.light}  onClick={props.darkswitchbtn}  />
-  <label className={`form-check-label  text-${text== "" || text=="primary" || text == "light" ? "black" : "white"}`} for="exampleRadios1">
-    Light  Mode
-  </label>
-</div>
-<div className="form-check">
-  <input className="form-check-input mx-1" type="radio" name="exampleRadios" id="exampleRadios2" onChange={Edittext} onClick={props.darkswitchbtn} value={props.mode.dark}/>
-  <label className={`form-check-label  text-${text== "" || text=="primary" || text == "light" ? "black" : "white"}`} for="exampleRadios2">
-    Dark Mode
-  </label>
-</div>
-<div className="form-check ">
-  <input class="form-check-input mx-1" type="radio" name="exampleRadios" id="exampleRadios3" onChange={Edittext} onClick={props.darkswitchbtn}   value={props.mode.primary} />
-  <label className={`form-check-label  text-${text== "" || text=="primary" || text == "light" ? "black" : "white"}`} for="exampleRadios3">
-    Blue Mode
-    
-  </label>
-</div>
+          <div className="form-check">
+            <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" onChange={Edittext} value={props.mode.light} onClick={props.darkswitchbtn} />
+            <label className={`form-check-label  text-${text == "" || text == "primary" || text == "light" ? "black" : "white"}`} htmlFor="exampleRadios1">
+              Light  Mode
+            </label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input mx-1" type="radio" name="exampleRadios" id="exampleRadios2" onChange={Edittext} onClick={props.darkswitchbtn} value={props.mode.dark} />
+            <label className={`form-check-label  text-${text == "" || text == "primary" || text == "light" ? "black" : "white"}`} htmlFor="exampleRadios2">
+              Dark Mode
+            </label>
+          </div>
+          <div className="form-check ">
+            <input className="form-check-input mx-1" type="radio" name="exampleRadios" id="exampleRadios3" onChange={Edittext} onClick={props.darkswitchbtn} value={props.mode.primary} />
+            <label className={`form-check-label  text-${text == "" || text == "primary" || text == "light" ? "black" : "white"}`} htmlFor="exampleRadios3">
+              Blue Mode
 
-    </div>
-  </div>
-  
-</nav>
+            </label>
+          </div>
 
+        </div>
+      </div>
+
+    </nav>
   </div>;
 }
 Navbar.propTypes = {
-    title:PropTypes.string.isRequired,
-    about:PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  about: PropTypes.string.isRequired,
 
 }
 Navbar.defaultProps = {
-    title:"Textutils",
-    about:"About us"
+  title: "Textutils",
+  about: "About us"
 }
